@@ -64,6 +64,7 @@ zenoh-sync = { version = "0.6.0-beta.1" }
 zenoh-util = { version = "0.6.0-beta.1" }
 zrpc = { git = "https://github.com/ZettaScaleLabs/zenoh-rpc.git", branch = "0.5.x" }
 zrpc-macros = { git = "https://github.com/ZettaScaleLabs/zenoh-rpc.git", branch = "0.5.x" }
+prost = { version = "0.11.2", optional = true }
 
 [dev-dependencies]
 tempdir = "0.3.7"
@@ -75,6 +76,7 @@ rustc_version = "0.4.0"
 data_bincode = []
 data_json = ["serde_json"]
 data_cbor = ["serde_cbor"]
+data_protobuf = ["prost"]
 
 debug = ["data_json"]
 default = ["debug"]

@@ -421,3 +421,17 @@ where
         Box::pin((self)())
     }
 }
+
+#[cfg(feature = "data_protobuf")]
+impl<T: prost::Message> ZFData for T {
+    fn try_serialize(&self) -> ZFResult<Vec<u8>> {
+        Ok(self.encode_to_vec())
+    }
+
+    fn try_deserialize(bytes: &[u8]) -> ZFResult<Self>
+    where
+        Self: Sized,
+    {
+        Ok(Message::decode(bytes).unwrap())
+    }
+}
